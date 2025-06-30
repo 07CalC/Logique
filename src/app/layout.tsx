@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+import TrpcProviders from "@/components/providers/TrpcProvider";
 
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function RootLayout({
         className={` `}
       >
         <SessionProvider>
-          {children}
+          <TrpcProviders>
+            {children}
+          </TrpcProviders>
         </SessionProvider>
       </body>
     </html>
