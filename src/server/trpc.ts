@@ -1,13 +1,15 @@
 import { auth } from "../../auth"
 import superjson from "superjson"
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
+import { db } from "@/db/init";
 
 
 
 export const createContext = async () => {
   const session = await auth();
   return {
-    session
+    session,
+    db
   }
 }
 
@@ -23,7 +25,7 @@ export const router = t.router;
 export const publicProcedure = t.procedure;
 export const protectedProcedure = t.procedure.use(async ({ ctx, next }) => {
   if (!ctx.session?.user) {
-    throw new Error("UNAUTHORIZED");
+    throw new TRPCError({ code: "UNAUTHORIZED", message: "you need to login first" })
   }
   return next({ ctx: { session: ctx.session } })
 })

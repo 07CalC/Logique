@@ -1,26 +1,14 @@
-'use client';
-import { db } from "@/db/init";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { trpc } from "@/lib/trpc";
-import { signIn, useSession } from "next-auth/react";
+import { UserRespository } from "@/services/repositories/UserRespository";
+import { signIn, signOut, useSession } from "next-auth/react";
 
-export default function Home() {
-  const session = useSession();
-  const { data, isLoading } = trpc.test.hello.useQuery({ name: session.data?.user?.name || 'Guest' });
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+export default async function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <button onClick={() => signIn('google')} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
-        Sign In with Google
-      </button>
-      <p>
-        {session.status === 'authenticated' ? (
-          <span>{data}</span>
-        ) : (
-          <span>Please sign in to continue.</span>
-        )}
-      </p>
+    <div className="grid text-primary grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <h1 className="text-base-content text-4xl font-bold">
+        Welcome to the Next.js App
+      </h1>
     </div>
 
   );
