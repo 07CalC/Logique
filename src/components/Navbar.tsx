@@ -3,12 +3,13 @@ import { auth } from "../../auth"
 import { ThemeToggle } from "./ThemeToggle";
 import { LoginButton } from "./auth/LoginButton";
 import { LogoutButton } from "./auth/LogoutButton";
+import Link from "next/link";
 
 export const Navbar = async () => {
   const session = await auth();
   return (
     <div className="flex px-10 fixed w-full top-0 h-20 items-center border-b-2 border-primary justify-between bg-base-300">
-      <div className="flex items-center">
+      <Link href={"/"} className="flex items-center">
         <Image
           src="/logo.png"
           alt="Logo"
@@ -16,8 +17,8 @@ export const Navbar = async () => {
           height={60}
           className=""
         />
-        <span className="text-4xl text-primary font-bold ml-2">Logique</span>
-      </div>
+        <span className="text-4xl text-base-content font-mono font-bold ml-2">Logique</span>
+      </Link>
       <div className="flex gap-x-5">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -1,7 +1,4 @@
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { trpc } from "@/lib/trpc";
-import { UserRespository } from "@/services/repositories/UserRespository";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { LeagueIcon } from "@/components/LeagueIcon";
 
 export default async function Home() {
   return (
@@ -9,6 +6,15 @@ export default async function Home() {
       <h1 className="text-base-content text-4xl font-bold">
         Welcome to the Next.js App
       </h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <LeagueIcon league="ohm" />
+        <LeagueIcon league="ampere" />
+        <LeagueIcon league="volt" />
+        <LeagueIcon league="joule" />
+        <LeagueIcon league="tesla" />
+        <LeagueIcon league="photon" />
+      </div>
+
     </div>
 
   );
