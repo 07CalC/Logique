@@ -1,3 +1,5 @@
+# use to roll the postgres container
+# only for development purposes
 version: '3.9'
 
 services:

@@ -1,3 +1,5 @@
+// this file creats the NextAuth instance and exports the auth, handlers, signIn, and signOut functions
+// do not touch this until its very important (dont touch)
 import NextAuth from "next-auth";
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import GoogleProvider from "next-auth/providers/google";

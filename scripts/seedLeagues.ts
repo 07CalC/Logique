@@ -1,3 +1,5 @@
+// used to seed the leagues table into the DB.
+// this script should be run manually from the root of the project else you can not access the environment variables.
 
 import { db } from "@/db/init";
 import { leagues } from "@/db/schema";
