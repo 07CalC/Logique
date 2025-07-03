@@ -1,6 +1,6 @@
 
 import { db } from "@/db/init";
-import { leagues } from "@/db/schema"; // Your Drizzle league schema
+import { leagues } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 const leagueData = [

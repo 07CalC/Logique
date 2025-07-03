@@ -1,3 +1,5 @@
+// this file is used to get environment variables and validate them using zod.
+// whenever you add a new environment variable, make sure to update this file.
 import { z } from "zod";
 
 const envSchema = z.object({

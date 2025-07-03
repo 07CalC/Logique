@@ -1,3 +1,4 @@
+// DB schema
 import {
   timestamp,
   pgTable,
